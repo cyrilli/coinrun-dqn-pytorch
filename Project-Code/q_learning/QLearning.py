@@ -35,8 +35,8 @@ class QLEARNING():
 
         self.memory = utils.ReplayMemory(config.MAX_REPLAY_MEMORY)
         self.minimum_memory = config.INITIAL_REPLAY_SIZE
-        # self.optimizer = torch.optim.Adam(self.Q_function.parameters(), lr=config.learning_rate)
-        self.optimizer = torch.optim.SGD(self.Q_function.parameters(), lr=config.learning_rate)
+        self.optimizer = torch.optim.Adam(self.Q_function.parameters(), lr=config.learning_rate)
+        # self.optimizer = torch.optim.SGD(self.Q_function.parameters(), lr=config.learning_rate)
         self.loss_func = utils.loss_criterion(config)
         self.batch_size = config.batch_size
         self.target_update_freq = config.target_update_freq
